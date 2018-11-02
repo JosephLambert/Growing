@@ -2,14 +2,24 @@
 <html>
   <head>
     <title>Growing</title>
+    <!-- 兼容移动端配置的meta标签 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <!-- 页面使用独立的css可以提升加载速度 -->
+    <%= yield :stylesheets %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/menu' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <%= javascript_include_tag 'application' %>
+    <!-- 页面使用独立的JS可以提升加载速度 -->
+    <%= yield :javascripts %>
   </body>
 </html>
