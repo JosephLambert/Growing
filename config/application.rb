@@ -16,6 +16,8 @@ module Growing
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    config.autoload_paths += %W[#{Rails.root}/lib]
+
     config.generators do |generator|
       generator.assets false
       generator.test_framework false
