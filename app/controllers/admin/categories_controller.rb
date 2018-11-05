@@ -51,7 +51,7 @@ class Admin::CategoriesController < Admin::BaseController
       redirect_to admin_categories_path
     else
       flash[:notice] = "删除失败"
-      redirect_to :back
+      redirect_back fallback_location: request.referrer
     end
   end
 
