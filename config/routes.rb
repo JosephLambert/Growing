@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  root "welcome#index"
+  root 'welcome#index'
 
   resources :users
   resources :sessions
-  delete "/logout" => "sessions#destroy", as: :logout
+  delete '/logout' => 'sessions#destroy', as: :logout
+
+  resources :categories, only: [:show]
+  resources :products, only: [:show]
 
   namespace :admin do
     root 'sessions#new'
