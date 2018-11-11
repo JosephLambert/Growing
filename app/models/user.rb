@@ -18,14 +18,16 @@ class User < ApplicationRecord
   validates_length_of :password, message: "密码最短为6位", minimum: 6,
     if: :need_validate_password
 
+  has_many :addresses, -> { where(address_type: Address::AddressType::User).order("id desc") }
+  belongs_to :default_address, class_name: :Address
+
   def username
     self.email.split('@').first
   end
 
   private
-
-    def need_validate_password
-      self.new_record? ||
-        (!self.password.nil? || !self.password_confirmation.nil?)
-    end
+  def need_validate_password
+    self.new_record? ||
+      (!self.password.nil? || !self.password_confirmation.nil?)
+  end
 end
