@@ -1,0 +1,7 @@
+<% @comments.each do |comment| %>
+  <label>评论人：</label>
+  <p><%= User.find(comment.user_id).email %></p>
+  <label>评论内容：</label>
+  <p><%= comment.content %></p>
+  <br>
+<% end %>

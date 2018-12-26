@@ -27,6 +27,7 @@ class User < ApplicationRecord
   belongs_to :default_address, class_name: :Address
   has_many :orders
   has_many :payments
+  has_many :comments
 
   def username
     self.email.blank? ? self.cellphone : self.email.split('@').first

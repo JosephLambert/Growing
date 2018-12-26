@@ -41,6 +41,10 @@
             <li><a href="<%= dashboard_addresses_path %>">我的收货地址</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="<%= dashboard_password_path %>">个人信息</a></li>
+            <% if logged_in? && current_user.is_admin == true %>
+              <li role="separator" class="divider"></li>
+              <li><a href="<%= admin_root_path %>">管理后台</a></li>
+            <% end -%>
           </ul>
         </li>
       </ul>

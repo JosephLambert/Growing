@@ -37,5 +37,68 @@
     <div>
       <%= @product.description.html_safe %>
     </div>
+    <br />
+    <div>
+      <%= form_for @comment, url: comments_path, method: :post, html: { class: "form-horizontal" } do |f| %>
+        <% unless @comment.errors.blank? %>
+          <div class="alert alert-danger">
+            <ul>
+              <% @comment.errors.messages.values.flatten.each do |error| %>
+                <li><%= error %></li>
+              <% end -%>
+            </ul>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <p>评论内容：</p>
+          <div>
+            <%= f.text_area :content, class: "form-control" %>
+          </div>
+        </div>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.submit "提交", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <br>
+    <div>
+      <p>所有评论</p>
+      <div id="comments-list"></div>
+      <a href="javascript:;" data-next-page data-ori-html data-url="<%= comments_path %>" data-product-id="<%= @product.id %>" data-container="#comments-list" class="more-btn">更多</a>
+    </div>
   </div>
 </div>
+
+<%= content_for :javascripts do %>
+  <script>
+    $('.more-btn').click(function () {
+      var $this = $(this),
+          nextPage = $this.data('next-page') || 1;
+      if (nextPage == -1)
+        return;
+
+      $.ajax({
+        url: $this.data('url'),
+        dataType: 'json',
+        data: {
+          page: nextPage,
+          product_id: $this.data('product-id')
+        },
+        beforeSend: function () {
+          $this.data('ori-html', $this.html()).html('Loading...');
+        },
+        success: function (data) {
+          $this.data('next-page', data.msg.next_page);
+          if (data.msg.next_page == -1) {
+            $this.addClass('nomore');
+          }
+
+          $($this.data('container')).append(data.msg.html);
+        },
+        complete: function () {
+          $this.html($this.data('ori-html'));
+        }
+      })
+    })
+    .trigger('click');  // load first page when page loaded
+  </script>
+<% end %>

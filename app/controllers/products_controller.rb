@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @comment = current_user.comments.new
   end
 
   def search

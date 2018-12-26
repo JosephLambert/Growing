@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     end
   end
   resources :cellphone_tokens, only: [:create]
+  resources :comments, only: [:create, :index]
 
   namespace :dashboard do
     scope 'profile' do
