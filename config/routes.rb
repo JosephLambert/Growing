@@ -48,4 +48,13 @@ Rails.application.routes.draw do
       resources :product_images, only: [:index, :create, :destroy, :update]
     end
   end
+
+  # wechat API
+
+  namespace :wechat do
+    controller :push do
+      get '/push' => :index
+    end
+  end
+
 end

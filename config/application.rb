@@ -12,6 +12,11 @@ ENV['ALIPAY_URL'] = 'https://mapi.alipay.com/gateway.do'
 ENV['ALIPAY_RETURN_URL'] = 'http://localhost:3000/payments/pay_return'
 ENV['ALIPAY_NOTIFY_URL'] = 'http://localhost:3000/payments/pay_notify'
 
+ENV['WECHAT_DEV_SANDBOX_ID'] = 'gh_030ad66dea98'
+ENV['WECHAT_DEV_SANDBOX_APP_ID'] = 'wxc9e21579278a899b'
+ENV['WECHAT_DEV_SANDBOX_APP_SECRET'] = '5aeff47ab1f731c96d058ff13df28e10'
+ENV['WECHAT_DEV_SANDBOX_PUSH_TOKEN'] = 'ldqt'
+
 
 module MasterRailsByActions
   class Application < Rails::Application

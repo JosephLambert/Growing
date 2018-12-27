@@ -1,0 +1,18 @@
+eggman:
+  development:
+    host: http://yanlei.vaiwan.com
+
+    wechat_id: <%= ENV['WECHAT_DEV_SANDBOX_ID'] %>
+    app_id: <%= ENV['WECHAT_DEV_SANDBOX_APP_ID'] %>
+    app_secret: <%= ENV['WECHAT_DEV_SANDBOX_APP_SECRET'] %>
+
+    oauth2_redirect_uri: "http://yanlei.vaiwan.com/wechat/users/callback"
+
+    push_url: "http://yanlei.vaiwan.com/wechat/push"
+    push_token: <%= ENV['WECHAT_DEV_SANDBOX_PUSH_TOKEN'] %>
+  production:
+    host: https://eggman.tv
+
+    wechat_id: xxxxxxxxxx
+    app_id: xxxxxxxxxxxxxxxxxxxx
+    app_secret: xxxxxxxxxxxxxxxxxxxxxxxxxx

@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+
+  self.wechat_gate_app_name = 'eggman'
+
   protect_from_forgery with: :exception
 
   before_action :set_browser_uuid
