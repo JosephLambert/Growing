@@ -56,6 +56,11 @@ Rails.application.routes.draw do
       get '/push' => :index
       post '/push' => :data
     end
+
+    controller :users do
+      get 'users/callback' => :callback
+    end
+
   end
 
 end

@@ -11,7 +11,7 @@ eggman:
     push_url: "http://yanlei.vaiwan.com/wechat/push"
     push_token: <%= ENV['WECHAT_DEV_SANDBOX_PUSH_TOKEN'] %>
   production:
-    host: https://eggman.tv
+    host: http://yanlei.vaiwan.com
 
     wechat_id: xxxxxxxxxx
     app_id: xxxxxxxxxxxxxxxxxxxx
