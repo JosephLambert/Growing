@@ -61,6 +61,11 @@ Rails.application.routes.draw do
       get 'users/callback' => :callback
     end
 
+    controller :ticket do
+      get 'ticket/' => :index
+      get 'ticket/share_test' => :share_test
+    end
+
   end
 
 end
