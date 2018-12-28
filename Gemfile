@@ -63,6 +63,9 @@ gem 'rest-client'
 # wechat api form eggman-tv
 gem 'wechat-gate'
 
+# parse html & xml
+gem 'nokogiri'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
