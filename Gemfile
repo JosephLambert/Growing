@@ -74,6 +74,13 @@ group :development, :test do
   gem 'database_cleaner', '~> 1.6.0'
   gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
+
+  # integrated test
+  gem 'capybara', '~> 2.13'
+
+  # capybara system test can access session
+  gem 'rack_session_access'
+
 end
 
 group :development do
@@ -86,8 +93,7 @@ group :development do
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'

@@ -14,6 +14,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # def logged_in?
+  #   !session[:user_id].blank?
+  # end
+
+  # def current_user
+  #   if logged_in?
+  #     @current_user ||= User.find(session[:user_id])
+  #   else
+  #     nil
+  #   end
+  # end
+
   def fetch_home_data
     @categories = Category.grouped_data
     @shopping_cart_count = ShoppingCart.by_user_uuid(session[:user_uuid]).count

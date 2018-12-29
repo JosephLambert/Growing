@@ -1,0 +1,15 @@
+<h1>Todos list</h1>
+
+<%= link_to "Create a Todo", new_todo_path %>
+
+<ul>
+  <% @todos.each do |todo| %>
+    <li id="todo-<%= todo.id %>">
+      <span class="<%= todo.complete? ? 'complete' : 'incomplete' %>">
+        <%= todo.complete? ? '已完成' : '未完成' %>
+      </span>
+      <%= todo.title %>
+      <%= link_to "#{todo.complete? ? '设为未完成' : '设为已完成'}", todo_path(todo), method: :put %>
+    </li>
+  <% end %>
+</ul>

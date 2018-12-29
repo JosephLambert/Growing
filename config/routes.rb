@@ -49,8 +49,9 @@ Rails.application.routes.draw do
     end
   end
 
-  # wechat API
+  resources :todos
 
+  # wechat API
   namespace :wechat do
     controller :push do
       get '/push' => :index
